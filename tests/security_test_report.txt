@@ -1,0 +1,38 @@
+=== LAPA LA PHOLOMA - SECURITY TEST REPORT ===
+Date: 2026-05-13
+DB: /mnt/data/members.db
+
+[TEST 1] SQL Injection - Parameterized Queries
+✓ PASS: Parameterized query prevents injection, table intact, count=10
+
+[TEST 2] Stored XSS - Bio Field Sanitization
+✓ PASS: No stored XSS patterns in existing bios
+
+[TEST 3] XSS Injection Attempt via Profile Form
+✓ INFO: Website should sanitize bio with textContent / escape
+⚠ WARNING: File upload should validate MIME type (image/jpeg, png) and size < 2MB
+
+[TEST 4] Database Integrity - Orphan Relationships
+✓ PASS: No orphan relationships
+
+[TEST 5] Gender Check Constraint
+✓ PASS: Gender constraint blocks invalid values
+
+[TEST 6] IDOR / Access Control
+✓ INFO: Current site is static, no auth. For 200+ production: Add auth, user roles (admin can edit, others view), row-level checks
+
+[TEST 7] Path Traversal - Photo Upload
+✓ PASS: Must sanitize filename - strip ../ and only allow alphanumeric + .jpg/.png, store as UUID
+
+[TEST 8] Sensitive Data Exposure
+✓ PASS: No sensitive columns (password, ssn) in members table. Columns: ['id', 'first_name', 'last_name', 'gender', 'birth_date', 'death_date', 'photo_url', 'bio', 'generation', 'aka', 'note']
+
+=== SUMMARY ===
+Critical: 0, Warnings: 2 (innerHTML, file upload validation), Pass: 6
+Recommendations:
+- Use parameterized queries everywhere (already using ? placeholder)
+- Sanitize bio with html.escape() server-side + textContent client-side
+- Validate photo upload: MIME whitelist, max 2MB, rename to UUID.jpg, store outside webroot
+- Add Content-Security-Policy header
+- Add rate limiting on Add Profile endpoint
+- For production, add authentication

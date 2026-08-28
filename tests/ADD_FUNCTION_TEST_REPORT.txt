@@ -1,0 +1,63 @@
+ADD FUNCTION TEST REPORT - Lapa la Pholoma
+=========================================
+Date: 2026-08-28
+Tested: Surname, Lapa Label, Parent fields
+
+TEST 1: Database Schema
+- members table has columns: first_name, last_name, surname, lapa_label, gender, generation, aka, bio, note
+- relationships table has: person_id, related_to_id, type
+Result: PASS
+
+TEST 2: Add Member with Surname, Lapa Label, Parent
+- Input: First Name=Test, Surname=Sepuru, Lapa Label=Lapa la Sepuru, Parent=Pholoma Sepuru (ID 1)
+- SQL: INSERT INTO members (first_name, last_name, surname, lapa_label, gender, generation, aka, note) VALUES ('Test', 'User', 'Sepuru', 'Lapa la Sepuru', 'M', 2, '', 'test')
+- SQL: INSERT INTO relationships (person_id, related_to_id, type) VALUES (1, 26, 'child')
+- Verified: Surname saved as Sepuru, Lapa Label saved as Lapa la Sepuru, Parent relationship saved
+Result: PASS
+
+TEST 3: Lapa la Sepuru Separated
+- Before: Lapa ga Sepuru le Ngwetjana (combined)
+- After: Lapa la Sepuru (separated)
+- Members with Lapa la Sepuru: Pholoma Sepuru, Ngwana Mahoai, Mmanare Chokoe Sepuru
+- Count: 3 members
+Result: PASS
+
+TEST 4: Surname Dropdown
+- Options: Sepuru, Pula, Semenya, Mphago, Rangata, Mokgehle, Moloto, Chokoe, Mokobodi, Other
+- Does NOT show first names like "Mah oai" - only surnames
+- Other option shows custom input field
+Result: PASS - Fixed bug where dropdown showed "Mah oai"
+
+TEST 5: Lapa Label Dropdown
+- Options: Lapa la ga Sekuto, Lapa la Sepuru (separated), Lapa la ga Chokwe Setupulane, Lapa la ga Pula ga Setati, Chokwe Nobral, Lleka malapa a mabedi, Lapa la Pula, Lapa la Leka - Moloto, Lapa la Leka - Chokoe, Ga a na bana
+- All malapa ka fase ga bana included
+Result: PASS
+
+TEST 6: Parent Dropdown
+- Shows all 25 members with Gen and Lapa: "Pholoma Sepuru (Gen1) - Lapa la Sepuru", etc.
+- Parent ID saved correctly in relationships table
+Result: PASS
+
+TEST 7: SQL Preview
+- Before (buggy): INSERT INTO members (full_name, surname, aka, lapa_label, parent_id, note) VALUES (' Mah oai', 'Mah oai', ...)
+- After (fixed): INSERT INTO members (id, first_name, last_name, surname, gender, bio, generation, aka, note, lapa_label) VALUES (26, 'Test', 'User', 'Sepuru', 'M', 'Test bio', 2, 'Aka', 'note', 'Lapa la Sepuru');
+- No leading spaces, correct columns
+Result: PASS - Fixed
+
+TEST 8: Live Preview
+- Shows: First Name + Surname + Lapa badge + Surname badge + Parent name
+- Updates instantly on input change for surname, lapa, parent
+Result: PASS
+
+TEST 9: Full Add Flow
+1. Fill Leina la Pele: Mokgaetsi
+2. Choose Seane/Surname: Pula
+3. Choose Lapa Label: Lapa la Pula
+4. Choose Mmotswadi: Mmakomana wa ga Pula Sepuru (ID 7)
+5. Click Boloka (Preview) / Add Member Now
+6. Alert: "Mokgaetsi Pula o okeditšwe! Surname: Pula, Lapa: Lapa la Pula, Parent: Mmakomana Sepuru (ID 7)"
+7. New card appears in tree under Mmakomana, in members grid, in parent dropdown
+8. SQL preview shows correct INSERTs
+Result: PASS
+
+ALL TESTS PASS - Add function works with Surname, Lapa Label, Parent

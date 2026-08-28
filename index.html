@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="nso">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<title>Full Lapa La Pholoma - Final</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="header glass">
+<div class="logo"><div style="width:32px;height:32px;background:#0f172a;color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800">P</div><b style="letter-spacing:2px;font-size:12px">LAPA LA PHOLOMA</b></div>
+<div class="nav" id="deskNav">
+<a href="#home" class="active" data-t="nav_home">Gae</a>
+<a href="#tree" data-t="nav_tree">Setlhare</a>
+<a href="#members" data-t="nav_members">Maloko</a>
+<a href="#pula" data-t="nav_pula">Lapa la Pula</a>
+<a href="#leka" data-t="nav_leka">Bana ba Leka</a>
+<a href="#add" data-t="nav_add">Oketša</a>
+<a href="#export" data-t="nav_export">Export</a>
+</div>
+<div style="display:flex;gap:8px;align-items:center">
+<div class="lang"><button id="btn-en" type="button" onclick="window.applyLang ? window.applyLang('en') : (typeof applyLang !== 'undefined' ? applyLang('en') : location.reload())">EN</button><button id="btn-nso" type="button" class="active" onclick="window.applyLang ? window.applyLang('nso') : (typeof applyLang !== 'undefined' ? applyLang('nso') : location.reload())">SEP</button></div>
+<button class="btn btn-black" onclick="document.getElementById('add').scrollIntoView({behavior:'smooth'})" data-t="btn_add">Oketša</button>
+<div class="hamburger" id="hamburger" onclick="document.getElementById('mobNav').classList.toggle('open')"><span></span><span></span><span></span></div>
+</div>
+<div class="mobile-nav" id="mobNav">
+<a href="#home" onclick="this.parentElement.classList.remove('open')" data-t="nav_home">Gae</a>
+<a href="#tree" onclick="this.parentElement.classList.remove('open')" data-t="nav_tree">Setlhare</a>
+<a href="#members" onclick="this.parentElement.classList.remove('open')" data-t="nav_members">Maloko</a>
+<a href="#pula" onclick="this.parentElement.classList.remove('open')" data-t="nav_pula">Lapa la Pula</a>
+<a href="#leka" onclick="this.parentElement.classList.remove('open')" data-t="nav_leka">Bana ba Leka</a>
+<a href="#add" onclick="this.parentElement.classList.remove('open')" data-t="nav_add">Oketša</a>
+<a href="#export" onclick="this.parentElement.classList.remove('open')" data-t="nav_export">Export</a>
+</div>
+</div>
+
+<div class="hero" id="home">
+<div>
+<div style="font-size:10px;letter-spacing:3px;color:#64748b;font-weight:700" data-t="hero_est">EST. LIMPOPO. 1854-2026 • BAOBAB</div>
+<h1 data-t="hero_title">Lapa la<br>Pholoma</h1>
+<p data-t="hero_sub">Pholoma le mosadi wa gagwe ngwana Mahoai. Bana ke 7. Makgabo le lengwe ke Raesetja. Leka ke L e tee le lengwe ke Lesiba. Leka Lesiba Sepuru, Tshwene Sepuru le Raisibe Sepuru.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+<button class="btn btn-black" onclick="document.getElementById('tree').scrollIntoView({behavior:'smooth'})" data-t="cta_tree">Bona Setlhare</button>
+<a href="backend/members.db" download><button class="btn btn-white">⬇ members.db (31)</button></a>
+</div>
+</div>
+<div class="card">
+<b>31 Maloko • 4 Meloko • 7 Bana + 6 Pula + 7 Moloto + 3 Raisibe + 3 Sekuto</b><br><br>
+<div style="font-size:13px;line-height:1.8">
+Pholoma Sepuru (Tate) - Lapa la Sepuru<br>
+Ngwana Mahoai (Mme)<br>
+→ Makgabo Sekuto Sepuru / Raesetja - Lapa la ga Sekuto<br>
+→ Mmanare Chokoe Sepuru - Lapa la Sepuru<br>
+→ Leka Lesiba Sepuru - Lleka malapa a mabedi<br>
+→ Tshwene Sepuru - wa go timela, Ga a na bana<br>
+→ Mmakomana wa ga Pula Sepuru - Lapa la ga Pula ga Setati<br>
+→ Raisibe Sepuru - Lapa la ga Chokwe Setupulane<br>
+→ Mmatšhwene Non Parel Sepuru - Chokwe Nobral
+</div>
+</div>
+</div>
+
+<div class="stats">
+<div class="stat"><b>31</b><span data-t="stat_members">Maloko</span></div>
+<div class="stat"><b>4</b><span data-t="stat_gen">Meloko</span></div>
+<div class="stat"><b>7</b><span data-t="stat_bana">Bana</span></div>
+<div class="stat"><b>9</b><span data-t="stat_lapa">Malapa</span></div>
+</div>
+
+<div class="section" id="tree">
+<h2 data-t="tree_title">Setlhare sa Lapa - Malapa Ka Fase</h2>
+<p style="color:#64748b" data-t="tree_desc">Pholoma le Mahoai ke mothapo, bana ba 7 ka malapa ka fase ga bona bjalo ka ge o kgopetše.</p>
+<div class="tree-wrap">
+<div style="text-align:center;font-size:11px;color:#94a3b8;margin-bottom:8px">Gen1 - Batswadi</div>
+<div class="tree-row" id="gen1"></div>
+<div style="text-align:center;color:#cbd5e1;margin:8px 0">↓ 7 Bana</div>
+<div style="text-align:center;font-size:11px;color:#94a3b8">Gen2 - Bana ba 7 ka Malapa ka Fase</div>
+<div class="tree-row" id="gen2"></div>
+</div>
+</div>
+
+<div class="section" id="pula">
+<h2 data-t="pula_title">LAPA LA PULA - Bana ba Mmakomana (6)</h2>
+<div class="lapa-section">
+<div class="tree-row" id="genPula"></div>
+<p style="font-size:12px;color:#64748b;margin-top:12px">Mmakomana wa ga Pula Sepuru → Lapa la ga Pula ga Setati → 6 bana: Mokgaetsi Flora Pula, Pholoma Helen Semenya, Regina Molatelo Pula, Thabitha Mmakwena Pula, Maria Pula, Maria Mmanoko Pula</p>
+</div>
+</div>
+
+<div class="section" id="leka">
+<h2 data-t="leka_title">Bana ba Leka Lesiba - Basadi ba 2</h2>
+<div class="lapa-section">
+<div class="tree-row" id="genLeka"></div>
+<p style="font-size:12px;color:#64748b;margin-top:12px">Leka Lesiba Sepuru o be a na le basadi ba ba bedi: ngwana Moloto le ngwana Chokoe. Bana ba ngwana Moloto ke 7. Tshwene Sepuru ga a na bana.</p>
+</div>
+</div>
+
+<div class="section" id="members">
+<h2 data-t="members_title">Maloko Ka Moka (31)</h2>
+<div style="display:flex;gap:8px;margin:12px 0;flex-wrap:wrap">
+<input id="search" placeholder="Nyaka / Search..." style="flex:1;min-width:180px">
+<select id="fGen"><option value="all">Meloko ka moka</option><option value="1">Gen1</option><option value="2">Gen2</option><option value="3">Gen3</option><option value="4">Gen4</option></select>
+</div>
+<div class="grid grid-members" id="membersGrid"></div>
+</div>
+
+
+
+<div class="section" id="add">
+<h2 data-t="add_title">Oketša Leloko le Leswa - Type Surname, Parent, Lapa</h2>
+<p style="color:#64748b;font-size:13px;margin-bottom:12px">Now you can TYPE your own surname, parent's name, and family label — with suggestions.</p>
+<div class="form-grid">
+<div class="form">
+<label data-t="label_first">Leina la Pele * (First Name) - Type</label><input id="first" placeholder="Type first name... e.g. Mokgaetsi" required>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div><label>Surname * / Sereto * - TYPE or choose</label>
+<input id="surnameInput" list="surnameList" placeholder="Type surname... e.g. Sepuru" required>
+<datalist id="surnameList">
+<option value="Sepuru"><option value="Pula"><option value="Semenya"><option value="Mphago"><option value="Rangata"><option value="Mokgehle"><option value="Moloto"><option value="Chokoe"><option value="Ngwetjana"><option value="Mokobodi"><option value="Sekuto"><option value="Sekutu">
+</datalist>
+<small style="color:#64748b;font-size:11px">Type any surname, suggestions shown</small>
+</div>
+<div><label data-t="label_last">Last Name / Other part - TYPE</label><input id="last" list="lastList" placeholder="Type... e.g. wa ga Pula">
+<datalist id="lastList"><option value="Sekutu"><option value="wa ga Pula"><option value="Chokoe"><option value="Mphago"><option value="wa go timela"></datalist>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div><label data-t="label_aka">Aka / Le lengwe - TYPE</label><input id="aka" list="akaList" placeholder="Type aka... e.g. Raesetja">
+<datalist id="akaList"><option value="Raesetja"><option value="Lesiba"><option value="Non Parel"></datalist>
+</div>
+<div><label data-t="label_gender">Bong / Gender</label><div style="margin-top:6px"><span class="chip active" id="gF" onclick="setG('F')">F - Mosadi</span><span class="chip" id="gM" onclick="setG('M')">M - Monna</span></div></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div><label data-t="label_parent">Motswadi / Parent * - TYPE name or choose</label>
+<input id="parentInput" list="parentList" placeholder="Type parent name... e.g. Pholoma Sepuru" required>
+<datalist id="parentList"></datalist>
+<input type="hidden" id="parent"><small style="color:#64748b;font-size:11px">Type to search, or choose from 31 members below</small>
+<select id="parentSelect" style="margin-top:6px;font-size:12px"><option value="">Or choose from list...</option></select>
+</div>
+<div><label data-t="label_lapa">Lapa Label * / Lapa - TYPE or choose</label>
+<input id="lapaInput" list="lapaList" placeholder="Type family label... e.g. Lapa la Sepuru" required>
+<datalist id="lapaList">
+<option value="Lapa la Sepuru"><option value="Lapa la Ngwetjana"><option value="Lapa la ga Sekuto"><option value="Lapa la ga Chokwe Setupulane"><option value="Lapa la ga Pula ga Setati"><option value="Chokwe Nobral"><option value="Lleka wa re malapa ao a mabedi"><option value="Lapa la Pula"><option value="Lapa la Leka - Moloto"><option value="Lapa la Leka - Chokoe"><option value="Ga a na bana">
+</datalist>
+<small style="color:#64748b;font-size:11px">Type any Lapa, e.g. your own family name</small>
+</div>
+</div>
+
+<label>Tshwaya / Note Tag - TYPE</label><input id="noteInput" list="noteList" placeholder="Type note... e.g. bommago Thabitha">
+<datalist id="noteList"><option value="bommago Thabitha"><option value="wa ga Pula"><option value="Non Parel"><option value="wa go timela"><option value="Ga a na bana"><option value="bommago"><option value="L e tee"></datalist>
+<div style="display:flex;gap:6px;margin:6px 0;flex-wrap:wrap"><button type="button" class="chip" onclick="addNoteFromInput()">+ Add Note</button><div id="noteChips" style="display:inline-flex;gap:4px;flex-wrap:wrap"></div></div>
+
+<label>Bio / Botshelo - TYPE</label><textarea id="bio" rows="3" placeholder="Type biography..."></textarea>
+<button class="btn btn-black" style="width:100%;margin-top:12px" onclick="addMember()" data-t="btn_grow">Godiša Mo Setlhareng - Add Member Now</button>
+<small style="color:#64748b;display:block;margin-top:8px;text-align:center">You can now TYPE surname, parent name, and family label freely — suggestions help but not required</small>
+</div>
+<div>
+<div class="card" style="position:sticky;top:80px"><b data-t="preview_title">Live Preview - How it will look</b><div id="preview" style="margin-top:12px"></div><div class="sql" id="sqlBox">-- SQL will appear with typed surname, lapa_label, parent</div><button class="btn btn-white" style="width:100%;margin-top:8px" onclick="navigator.clipboard.writeText(document.getElementById('sqlBox').innerText);alert('SQL Copied!')">Copy SQL INSERT</button><div style="margin-top:12px;font-size:11px;color:#64748b"><b>What will be saved (typed):</b><br>✓ First Name (typed)<br>✓ Surname (typed - e.g. Sepuru)<br>✓ Lapa Label (typed - e.g. Lapa la Sepuru)<br>✓ Parent Name (typed - e.g. Pholoma Sepuru)<br>✓ Gender, Aka, Note, Bio</div></div>
+</div>
+</div>
+</div>
+
+
+<div class="section" id="export" style="background:#fff;border:1px solid #e2e8f0;border-radius:20px;padding:20px">
+<h2 data-t="export_title">Export • DB + Zip</h2><p style="color:#64748b;margin:8px 0" data-t="export_desc">Database ya nnete ya 31 maloko - EST 1854-2026</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+<a href="backend/members.db" download><button class="btn btn-black">⬇ members.db (31)</button></a>
+<a href="backend/schema.sql" download><button class="btn btn-white">⬇ schema.sql</button></a>
+<a href="tests/security_test_report.txt" download><button class="btn btn-white">⬇ Security Report</button></a>
+<a href="tests/unit_tests.py" download><button class="btn btn-white">⬇ UTests</button></a>
+</div>
+</div>
+
+<footer style="background:#0f172a;color:#94a3b8;padding:32px;text-align:center;margin-top:60px"><b style="color:#fff;letter-spacing:2px">LAPA LA PHOLOMA - FINAL 31 MEMBERS - EST 1854-2026</b><div style="margin-top:6px;font-size:12px">Pholoma Sepuru le Ngwana Mahoai • Bana ke 7 • Malapa ka fase • Lapa la Pula 6 • Bana ba Moloto 7 • Tshwene ga a na bana • Responsive 320-1920px</div></footer>
+
+<script src="js/data.js"></script>
+<script src="js/lang.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

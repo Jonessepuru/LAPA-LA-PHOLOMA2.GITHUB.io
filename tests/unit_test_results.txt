@@ -1,0 +1,16 @@
+
+test_aka_handling (unit_tests.TestLapaLaPholoma) ... ok
+test_gender_constraint (unit_tests.TestLapaLaPholoma) ... ok
+test_generation (unit_tests.TestLapaLaPholoma) ... ok
+test_member_count (unit_tests.TestLapaLaPholoma) ... ok
+test_no_orphans (unit_tests.TestLapaLaPholoma) ... ok
+test_note_handling (unit_tests.TestLapaLaPholoma) ... ok
+test_root_exists (unit_tests.TestLapaLaPholoma) ... ok
+test_seven_children (unit_tests.TestLapaLaPholoma) ... ok
+test_sql_injection_blocked (unit_tests.TestLapaLaPholoma) ... ok
+test_thabitha_child (unit_tests.TestLapaLaPholoma) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.002s
+
+OK
